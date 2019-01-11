@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour {
 
 
     void Awake() {
+        Menu = GameObject.Find("/Canvas");
         DataBank = GameObject.Find("/DataBank");
         SetUpLevels();
     }
@@ -31,6 +32,7 @@ public class LevelManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
     }
+
 
     public GameObject GetLevel(int num) {
         if (Levels.Count >= num) {

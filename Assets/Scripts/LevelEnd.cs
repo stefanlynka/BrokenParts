@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class LevelEnd : MonoBehaviour {
 
-    public GameObject TimeText;
-    public GameObject TimeHighScoreText;
-    public GameObject AbilityText;
-    public GameObject AbilityHighscoreText;
+    GameObject TimeText;
+    GameObject TimeHighScoreText;
+    GameObject AbilityText;
+    GameObject AbilityHighscoreText;
 
     public List<GameObject> UIElements = new List<GameObject>();
 

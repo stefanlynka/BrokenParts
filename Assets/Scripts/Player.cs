@@ -124,7 +124,7 @@ public class Player : MonoBehaviour {
         LoadLevel(CurrentLevel);
     }
 
-    void LoadLevelX(int num) {
+    public void LoadLevelX(int num) {
         GameObject new_level = LvlManager.GetComponent<LevelManager>().GetLevel(num);
         if (new_level) LoadLevel(new_level);
     }

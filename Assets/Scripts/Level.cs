@@ -49,8 +49,6 @@ public class Level : MonoBehaviour {
 
         for( int i = 0; i < LevelButton.transform.childCount; i++) {
             GameObject level_text = LevelButton.transform.GetChild(i).gameObject;
-            float time_text = time_highscore;
-            float ability_text = ability_highscore;
 
             if ((level_text.GetComponent<Text>()) && (i == 1)) {
                 level_text.GetComponent<Text>().text = "Time: " + time_highscore.ToString("F2") + "\nMoves: " + ability_highscore;
