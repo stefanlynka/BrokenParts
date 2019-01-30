@@ -38,8 +38,16 @@ public class UICommand : MonoBehaviour {
     void UpdateText() {
         Level.text = "Level " + Player.GetComponent<Player>().CurrentLevel.GetComponent<Level>().level_num.ToString();
         Collected.text = "Acorns Collected: " + Player.GetComponent<Player>().collected.ToString();
+        float ability_ratio = Player.GetComponent<Player>().ability_counter / 0.5f;
+        if (Player.GetComponent<Player>().CurrentLevel.GetComponent<Level>().target_moves_silver != 0) ability_ratio = Player.GetComponent<Player>().ability_counter / Player.GetComponent<Player>().CurrentLevel.GetComponent<Level>().target_moves_silver;
+
         AbilitiesUsed.text = "Abilities Used: " + Player.GetComponent<Player>().ability_counter.ToString();
-        Timer.text = "Timer: " + Player.GetComponent<Player>().timer.ToString("F2");
+        AbilitiesUsed.color = new Color(ability_ratio, 1 - ability_ratio, 0);
+
+        float time = Player.GetComponent<Player>().timer;
+        Timer.text = "Timer: " + time.ToString("F2");
+        float time_ratio = time / Player.GetComponent<Player>().CurrentLevel.GetComponent<Level>().target_time_silver;
+        Timer.color = new Color(time_ratio, 1-time_ratio, 0f);
 
     }
 }

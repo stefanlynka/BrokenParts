@@ -231,9 +231,14 @@ public class Player : MonoBehaviour {
             CurrentLevel.GetComponent<Level>().UpdateHighScores(timer, ability_counter);
             float highscore_timer = CurrentLevel.GetComponent<Level>().time_highscore;
             int highscore_abilities = CurrentLevel.GetComponent<Level>().ability_highscore;
-            float time_target = CurrentLevel.GetComponent<Level>().target_time;
-            int ability_target = CurrentLevel.GetComponent<Level>().target_moves;
-            PausedMenu.GetComponent<PauseMenu>().GoToLevelEnd(timer, highscore_timer, time_target, ability_counter, highscore_abilities, ability_target);
+            string time_rank = CurrentLevel.GetComponent<Level>().time_rank;
+            string move_rank = CurrentLevel.GetComponent<Level>().move_rank;
+            string time_highscore_rank = CurrentLevel.GetComponent<Level>().time_highscore_rank;
+            string move_highscore_rank = CurrentLevel.GetComponent<Level>().move_highscore_rank;
+
+            print("evidence: " + time_rank);
+
+            PausedMenu.GetComponent<PauseMenu>().GoToLevelEnd(timer, highscore_timer, time_highscore_rank, time_rank, ability_counter, highscore_abilities, move_highscore_rank, move_rank);
             LvlManager.GetComponent<LevelManager>().SaveData();
         }
         // When you touch a CameraPanner, change corresponding UI elements and SlowPan the camera

@@ -26,12 +26,13 @@ public class PauseMenu : MonoBehaviour {
         Database = GameObject.Find("/DataBank");
         GetWorlds();
         AddUIs();
-        SetupWorldButtons();
-        SetupPauseButtons();
-        SetupEndButtons();
     }
 
     void Start () {
+        SetupPauseButtons();
+        SetupWorldButtons();
+        SetupEndButtons();
+
         SetPointText();
     }
 	
@@ -115,8 +116,6 @@ public class PauseMenu : MonoBehaviour {
         }
     }
 
-
-
     public void Resume() {
         DeactivateUIs();
         Time.timeScale = 1;
@@ -138,13 +137,13 @@ public class PauseMenu : MonoBehaviour {
         ActivateWorld(current_world);
     }
 
-    public void GoToLevelEnd(float end_time, float time_highscore, float time_target, int ability_count, int ability_highscore, int ability_target) {
+    public void GoToLevelEnd(float end_time, float time_highscore, string time_highscore_rank, string time_rank, int ability_count, int ability_highscore, string ability_highscore_rank, string move_rank) {
         DeactivateUIs();
         LevelEndUI.SetActive(true);
         Time.timeScale = 0;
         Paused = true;
 
-        LevelEndUI.GetComponent<LevelEnd>().GetFinalStats(end_time, time_highscore, time_target, ability_count, ability_highscore, ability_target);
+        LevelEndUI.GetComponent<LevelEnd>().GetFinalStats(end_time, time_highscore, time_highscore_rank, time_rank, ability_count, ability_highscore, ability_highscore_rank, move_rank);
     }
 
     public void GoToNextWorldLevelSelect() {

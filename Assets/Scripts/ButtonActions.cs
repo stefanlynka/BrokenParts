@@ -50,12 +50,7 @@ public class ButtonActions : MonoBehaviour {
     public void MakeRestartButton() {
         GetComponent<Button>().onClick.AddListener(Restart);
     }
-
-
-
-
-
-
+    
 
     public void NextWorld() {
         GameObject.Find("/Canvas").GetComponent<PauseMenu>().GoToNextWorldLevelSelect();
