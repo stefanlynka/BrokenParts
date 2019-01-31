@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour {
     void Start () {
         SetupPauseButtons();
         SetupWorldButtons();
-        SetupEndButtons();
+        if(LevelEndUI) SetupEndButtons();
 
         SetPointText();
     }
@@ -87,7 +87,6 @@ public class PauseMenu : MonoBehaviour {
                 if (ui.name.Contains("Level")) {
                     ui.GetComponent<ButtonActions>().MakeLevelButton();
                     ui.GetComponent<ButtonActions>().level_num = i*9 + (ui.name[6]-48);
-                    print(i*9 + (ui.name[6] - 48));
                 }
                 if (ui.name.Contains("Back")) {
                     ui.GetComponent<ButtonActions>().MakeBackButton();

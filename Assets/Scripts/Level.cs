@@ -67,7 +67,7 @@ public class Level : MonoBehaviour {
 
         for ( int i = 0; i < LevelButton.transform.childCount; i++) {
             GameObject level_text = LevelButton.transform.GetChild(i).gameObject;
-            level_text.SetActive(false);
+            if (level_text.name.Contains("Acorn")) level_text.SetActive(false);
 
             if ((level_text.GetComponent<Text>()) && (i == 1)) {
                 level_text.GetComponent<Text>().text = "Time: " + time_highscore.ToString("F2") + "\nMoves: " + ability_highscore;
@@ -104,11 +104,10 @@ public class Level : MonoBehaviour {
         else if (time <= target_time_silver) time_rank = "silver";
         else if (time <= target_time_bronze) time_rank = "bronze";
         else time_rank = "";
-        print("time_rank at set is: " + time_rank);
 
         if (abilities <= target_moves_gold) move_rank = "gold";
-        else if (time <= target_moves_silver) move_rank = "silver";
-        else if (time <= target_moves_bronze) move_rank = "bronze";
+        else if (abilities <= target_moves_silver) move_rank = "silver";
+        else if (abilities <= target_moves_bronze) move_rank = "bronze";
         else move_rank = "";
     }
 

@@ -41,7 +41,6 @@ public class LevelEnd : MonoBehaviour {
         for (int i = 0; i < TimeText.transform.childCount; i++) {
             GameObject time_acorn = TimeText.transform.GetChild(i).gameObject;
             time_acorn.SetActive(false);
-            print("time rank : " + time_rank);
             if (time_acorn.name.Contains("Gold") && time_rank == "gold") time_acorn.SetActive(true);
             if (time_acorn.name.Contains("Silver") && time_rank == "silver") time_acorn.SetActive(true);
             if (time_acorn.name.Contains("Bronze") && time_rank == "bronze") time_acorn.SetActive(true);
@@ -61,6 +60,7 @@ public class LevelEnd : MonoBehaviour {
             if (move_acorn.name.Contains("Gold") && move_rank == "gold") move_acorn.SetActive(true);
             if (move_acorn.name.Contains("Silver") && move_rank == "silver") move_acorn.SetActive(true);
             if (move_acorn.name.Contains("Bronze") && move_rank == "bronze") move_acorn.SetActive(true);
+            //print("move_rank for level end : " + move_rank);
         }
 
         for (int i = 0; i < AbilityHighscoreText.transform.childCount; i++) {

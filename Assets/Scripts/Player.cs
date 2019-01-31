@@ -236,7 +236,6 @@ public class Player : MonoBehaviour {
             string time_highscore_rank = CurrentLevel.GetComponent<Level>().time_highscore_rank;
             string move_highscore_rank = CurrentLevel.GetComponent<Level>().move_highscore_rank;
 
-            print("evidence: " + time_rank);
 
             PausedMenu.GetComponent<PauseMenu>().GoToLevelEnd(timer, highscore_timer, time_highscore_rank, time_rank, ability_counter, highscore_abilities, move_highscore_rank, move_rank);
             LvlManager.GetComponent<LevelManager>().SaveData();

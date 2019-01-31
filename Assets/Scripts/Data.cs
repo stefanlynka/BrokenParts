@@ -11,7 +11,7 @@ public class Data : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         data_path = Path.Combine(Application.persistentDataPath, "CharacterData.txt");
-        //print(data_path);
+        print(data_path);
 
         if (!File.Exists(data_path)) SaveCharacter();
 
