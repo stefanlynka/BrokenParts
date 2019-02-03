@@ -59,7 +59,7 @@ public class ButtonActions : MonoBehaviour {
         GameObject.Find("/Canvas").GetComponent<PauseMenu>().GoToPrevWorldLevelSelect();
     }
     public void Back() {
-        GameObject.Find("/Canvas").GetComponent<PauseMenu>().Pause();
+        GameObject.Find("/Canvas").GetComponent<PauseMenu>().GoBack();
     }
     public void LoadLevel() {
         print("loading level : " + level_num);

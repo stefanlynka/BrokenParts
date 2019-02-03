@@ -32,6 +32,8 @@ public class Level : MonoBehaviour {
     public int ability_highscore;
     public float time_highscore = 999F;
 
+    public float developer_time = 0F;
+
     public string move_rank = "";
     public string time_rank = "";
     public string move_highscore_rank = "";
@@ -97,6 +99,9 @@ public class Level : MonoBehaviour {
             else if (level_text.name.Contains("Bronze Acorn Moves") && move_highscore_rank == "bronze") {
                 level_text.SetActive(true);
                 Points.TotalPoints += 1;
+            }
+            if (level_text.name.Contains("Developer") && time < developer_time) {
+                level_text.SetActive(true);
             }
         }
 

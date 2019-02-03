@@ -35,7 +35,7 @@ public class LevelEnd : MonoBehaviour {
         }
     }
 
-    public void GetFinalStats(float time, float time_highscore, string time_highscore_rank, string time_rank, int abilities_used, int ability_highscore, string move_highscore_rank, string move_rank) {
+    public void GetFinalStats(float time, float time_highscore, string time_highscore_rank, string time_rank, int abilities_used, int ability_highscore, string move_highscore_rank, string move_rank, bool dev_time, bool high_dev_time) {
 
 
         for (int i = 0; i < TimeText.transform.childCount; i++) {
@@ -44,6 +44,7 @@ public class LevelEnd : MonoBehaviour {
             if (time_acorn.name.Contains("Gold") && time_rank == "gold") time_acorn.SetActive(true);
             if (time_acorn.name.Contains("Silver") && time_rank == "silver") time_acorn.SetActive(true);
             if (time_acorn.name.Contains("Bronze") && time_rank == "bronze") time_acorn.SetActive(true);
+            if (time_acorn.name.Contains("Developer") && dev_time) time_acorn.SetActive(true);
         }
 
         for (int i = 0; i < TimeHighScoreText.transform.childCount; i++) {
@@ -52,6 +53,7 @@ public class LevelEnd : MonoBehaviour {
             if (time_highscore_acorn.name.Contains("Gold") && time_highscore_rank == "gold") time_highscore_acorn.SetActive(true);
             if (time_highscore_acorn.name.Contains("Silver") && time_highscore_rank == "silver") time_highscore_acorn.SetActive(true);
             if (time_highscore_acorn.name.Contains("Bronze") && time_highscore_rank == "bronze") time_highscore_acorn.SetActive(true);
+            if (time_highscore_acorn.name.Contains("Developer") && high_dev_time) time_highscore_acorn.SetActive(true);
         }
 
         for (int i = 0; i < AbilityText.transform.childCount; i++) {

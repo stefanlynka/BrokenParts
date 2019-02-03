@@ -229,15 +229,17 @@ public class Player : MonoBehaviour {
         // When you reach the exit with enough collectibles, update highscores, prepare the level end UI, and save highscores
         if ((collider.gameObject.tag == "Exit") && (collected >= CurrentLevel.GetComponent<Level>().required_acorns)) {
             CurrentLevel.GetComponent<Level>().UpdateHighScores(timer, ability_counter);
-            float highscore_timer = CurrentLevel.GetComponent<Level>().time_highscore;
+            float highscore_time = CurrentLevel.GetComponent<Level>().time_highscore;
             int highscore_abilities = CurrentLevel.GetComponent<Level>().ability_highscore;
             string time_rank = CurrentLevel.GetComponent<Level>().time_rank;
             string move_rank = CurrentLevel.GetComponent<Level>().move_rank;
             string time_highscore_rank = CurrentLevel.GetComponent<Level>().time_highscore_rank;
             string move_highscore_rank = CurrentLevel.GetComponent<Level>().move_highscore_rank;
+            bool dev_time = (timer <= CurrentLevel.GetComponent<Level>().developer_time);
+            bool high_dev_time = (highscore_time <= CurrentLevel.GetComponent<Level>().developer_time);
 
 
-            PausedMenu.GetComponent<PauseMenu>().GoToLevelEnd(timer, highscore_timer, time_highscore_rank, time_rank, ability_counter, highscore_abilities, move_highscore_rank, move_rank);
+            PausedMenu.GetComponent<PauseMenu>().GoToLevelEnd(timer, highscore_time, time_highscore_rank, time_rank, ability_counter, highscore_abilities, move_highscore_rank, move_rank, dev_time, high_dev_time);
             LvlManager.GetComponent<LevelManager>().SaveData();
         }
         // When you touch a CameraPanner, change corresponding UI elements and SlowPan the camera

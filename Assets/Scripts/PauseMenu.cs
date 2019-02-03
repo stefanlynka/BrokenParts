@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour {
 
     int current_world = 1;
     int world_count = 0;
+    string ui_state = "playing";
 
     // Use this for initialization
     private void Awake() {
@@ -126,6 +127,19 @@ public class PauseMenu : MonoBehaviour {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         Paused = true;
+        ui_state = "pause";
+        print("pause called, ui_state = pause");
+    }
+
+    public void GoBack() {
+        print("go back activated");
+        if (ui_state == "end") {
+            DeactivateUIs();
+            LevelEndUI.SetActive(true);
+        }
+        else {
+            Pause();
+        }
     }
 
     public void GoToLevelSelect() {
@@ -136,13 +150,15 @@ public class PauseMenu : MonoBehaviour {
         ActivateWorld(current_world);
     }
 
-    public void GoToLevelEnd(float end_time, float time_highscore, string time_highscore_rank, string time_rank, int ability_count, int ability_highscore, string ability_highscore_rank, string move_rank) {
+    public void GoToLevelEnd(float end_time, float time_highscore, string time_highscore_rank, string time_rank, int ability_count, int ability_highscore, string ability_highscore_rank, string move_rank, bool dev_time, bool high_dev_time) {
         DeactivateUIs();
         LevelEndUI.SetActive(true);
         Time.timeScale = 0;
         Paused = true;
+        ui_state = "end";
+        print("ui_state = end");
 
-        LevelEndUI.GetComponent<LevelEnd>().GetFinalStats(end_time, time_highscore, time_highscore_rank, time_rank, ability_count, ability_highscore, ability_highscore_rank, move_rank);
+        LevelEndUI.GetComponent<LevelEnd>().GetFinalStats(end_time, time_highscore, time_highscore_rank, time_rank, ability_count, ability_highscore, ability_highscore_rank, move_rank, dev_time, high_dev_time);
     }
 
     public void GoToNextWorldLevelSelect() {
